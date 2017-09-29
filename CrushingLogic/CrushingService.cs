@@ -12,15 +12,16 @@ namespace CrushingLogic
     {
 
         //HardCoded program was changed for Guetzli which does not do well with ParallelOptions.  Should be default or -1 on others.
-        private int DegreeOfParallelism = 1;
+        private int DegreeOfParallelism;
 
-        public CrushingService(string DirectoryToCrush, string tempTransferFolder, string WorkLocation, string PNGCrusherFile, string JPGCrusherFile)
+        public CrushingService(string DirectoryToCrush, string tempTransferFolder, string WorkLocation, string PNGCrusherFile, string JPGCrusherFile, int degreeOfParallelism = -1)
         {
             workinglocation = WorkLocation;
             PNGExeName = PNGCrusherFile;
             JPGExeName = JPGCrusherFile;
             CrushingLocation = new DirectoryInfo(DirectoryToCrush);
             transferFolder = tempTransferFolder;
+            DegreeOfParallelism = degreeOfParallelism;
         }
 
         private string workinglocation;
